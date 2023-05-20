@@ -1,0 +1,3 @@
+Vamoos a dividir el juego en Pantalla de titulo, donde meteremos Iniciar juego,meter nombre de jugador y salir 
+
+ 
