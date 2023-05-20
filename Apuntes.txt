@@ -1,0 +1,14 @@
+
+Pantalla de elección de personaje. 
+
+Pantalla de Torneo : 
+
+Si gana, pasa a una pantalla que diga que ha ganado 
+ese turno y pasas a la siguiente fase. Implementar boton OK. 
+
+Si le doy a ok paso a la pantalla de torneo nuevamente. 
+
+Si pierdo : Pantalla game over. Boton de volver a intentar, cuando le dé
+
+vuelvo a la pantalla inicial, que es donde escoges personaje y demás. 
+
