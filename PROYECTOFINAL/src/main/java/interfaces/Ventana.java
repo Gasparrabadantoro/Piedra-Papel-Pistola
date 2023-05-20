@@ -51,23 +51,38 @@ public class Ventana extends JFrame {
 	
 	public void cambiarAPantalla(Class<?> clase) {
 		this.getContentPane().setVisible(false);
-		/*if (clase.equals(PantallaLogin.class)) {
-			this.setContentPane(new PantallaLogin(this));
+		if (clase.equals(PantallaInicio.class)) {
+			this.setContentPane(new PantallaInicio(this));
 
 		}
-		if(clase.equals(PantallaRegistro.class)) {
-			this.setContentPane(new PantallaRegistro(this));
+		
+		if(clase.equals(PantallaEleccionPersonaje.class)) {
+			this.setContentPane(new PantallaEleccionPersonaje(this));
 			
 		
 			
 		}
 		
-		if(clase.equals(PantallaListado.class)) {
-			this.setContentPane(new PantallaListado(this));
+		if(clase.equals(PantallaGameOver.class)) {
+			this.setContentPane(new PantallaGameOver(this));
 			
 		
 			
-		}*/
+		}
+		
+		if(clase.equals(PantallaTorneo.class)) {
+			this.setContentPane(new PantallaTorneo(this));
+			
+		
+			
+		}
+		
+		if(clase.equals(PantallaWinner.class)) {
+			this.setContentPane(new PantallaWinner(this));
+			
+		
+			
+		}
 		
 		this.getContentPane().setVisible(true);
 
