@@ -44,12 +44,9 @@ public class Personaje extends ElementoConNombre{
 		this.armas = armas;
 	}
 
-	public static void lanzarDecision() {
+	public void lanzarDecision() {
 		
-		// por determinar 
-		
-		
-		
+		String frase="Has implementado esta decision";
 	}
 	
 
