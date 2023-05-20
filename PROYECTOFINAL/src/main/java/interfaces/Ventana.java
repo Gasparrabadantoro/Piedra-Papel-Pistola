@@ -11,8 +11,8 @@ import java.awt.GridBagLayout;
 public class Ventana extends JFrame {
 	
 	public Ventana() {
-		
-		//this.setContentPane();
+		//
+		this.setContentPane(new PantallaInicio(this));
 		// para hacerlo visible
 		this.setVisible(true);
 		// para el tamaño
@@ -43,9 +43,33 @@ public class Ventana extends JFrame {
            
             e.printStackTrace();
         }
+        
+        
 
 		
 	}
 	
-	
+	public void cambiarAPantalla(Class<?> clase) {
+		this.getContentPane().setVisible(false);
+		/*if (clase.equals(PantallaLogin.class)) {
+			this.setContentPane(new PantallaLogin(this));
+
+		}
+		if(clase.equals(PantallaRegistro.class)) {
+			this.setContentPane(new PantallaRegistro(this));
+			
+		
+			
+		}
+		
+		if(clase.equals(PantallaListado.class)) {
+			this.setContentPane(new PantallaListado(this));
+			
+		
+			
+		}*/
+		
+		this.getContentPane().setVisible(true);
+
+	}
 }
