@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Font;
 import java.awt.Insets;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
 
 public class PantallaInicio extends JPanel{
 	
@@ -18,16 +21,12 @@ public class PantallaInicio extends JPanel{
 		this.ventana=v;
 		// con esto 
 		this.setBackground(new Color(0,0,0));
-		setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Piedra-Papel-Pistola");
-		lblNewLabel.setBounds(262, 48, 348, 49);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		add(lblNewLabel);
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{800, 0};
+		gridBagLayout.rowHeights = new int[]{500, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
 		
 	}
-	
-	
-
 }

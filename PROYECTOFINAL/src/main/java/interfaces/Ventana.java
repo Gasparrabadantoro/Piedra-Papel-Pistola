@@ -16,9 +16,8 @@ public class Ventana extends JFrame {
 		// para hacerlo visible
 		this.setVisible(true);
 		// para el tamaño
-		/*this.setSize(600, 500);*/
+		this.setSize(800,500);
 		
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		// para el titulo
 		this.setTitle("Piedra-Papel-Pistola");
 		// para cerrar las ventanas en ejecucion (en plan para cuando se queda encendido

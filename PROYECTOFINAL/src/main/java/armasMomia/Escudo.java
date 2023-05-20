@@ -12,11 +12,11 @@ public class Escudo extends ArmaMomia {
 		
 	}
 	
-	public void defender(Personaje personaje,int defensa) {
+	public void defender(Personaje personaje,int daño) {
 		
-		defensa=this.getDaño()-this.getDaño();
 		
-		personaje.setVida(personaje.getVida()+defensa);
+		
+		personaje.setVida(personaje.getVida()+daño);
 		
 	}
 	
