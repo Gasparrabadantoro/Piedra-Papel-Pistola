@@ -25,9 +25,8 @@ import java.awt.event.MouseEvent;
 public class PantallaInicio extends JPanel{
 	
 	private Ventana ventana;
-	private JButton botonIniciar;
 	
-	public PantallaInicio(Ventana v) {
+	public PantallaInicio(final Ventana v) {
 		setBackground(new Color(0, 0, 0));
 		setForeground(new Color(0, 0, 0));
 		setLayout(null);
@@ -59,12 +58,12 @@ public class PantallaInicio extends JPanel{
 		HashSetSut.setBounds(304, 216, 240, 164);
 		add(HashSetSut);
 		
-		botonIniciar = new JButton("Iniciar Juego");
+		JButton botonIniciar = new JButton("Iniciar Juego");
 		botonIniciar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				ventana.cambiarAPantalla(PantallaEleccionPersonaje.class);
+				v.cambiarAPantalla(PantallaEleccionPersonaje.class);
 			}
 		});
 		botonIniciar.setBounds(232, 182, 127, 23);

@@ -12,9 +12,10 @@ public class PantallaEleccionPersonaje extends JPanel {
 	private Ventana ventana;
 
 	public PantallaEleccionPersonaje(Ventana v) {
+		setBackground(new Color(0, 255, 64));
 
 		this.ventana = v;
-		setLayout((LayoutManager) ventana);
+		setLayout(null);
 		
 		JLabel textoElegirPersonaje = new JLabel("ElijePersonaje");
 		textoElegirPersonaje.setBounds(196, 25, 136, 14);
