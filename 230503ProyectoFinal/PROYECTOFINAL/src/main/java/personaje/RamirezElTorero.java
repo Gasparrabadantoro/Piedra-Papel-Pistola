@@ -3,6 +3,8 @@ package personaje;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import armaTorera.ArmaTorera;
 import armasConvencionales.Arma;
 
@@ -10,7 +12,7 @@ public class RamirezElTorero extends Personaje {
 
 	private ArmaTorera armaTorera;
 	
-	public RamirezElTorero(String nombre, int vida, BufferedImage imagen, ArrayList<Arma> armas,ArmaTorera armaTorera) {
+	public RamirezElTorero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaTorera armaTorera) {
 		super(nombre, vida, imagen, armas);
 		
 		this.armaTorera=armaTorera;

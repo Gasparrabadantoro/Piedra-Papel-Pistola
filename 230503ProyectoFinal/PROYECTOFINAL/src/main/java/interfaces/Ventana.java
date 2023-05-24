@@ -33,7 +33,7 @@ public class Ventana extends JFrame {
 		// para hacerlo visible
 		this.setVisible(true);
 		// para el tamaño
-		this.setSize(700,500);
+		this.setSize(900,600);
 		
 		// para el titulo
 		this.setTitle("Piedra-Papel-Pistola");

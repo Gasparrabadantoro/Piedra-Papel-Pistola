@@ -3,6 +3,8 @@ package personaje;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import armasConvencionales.Arma;
 import armasVaquera.ArmaVaquera;
 import personaje.Personaje;
@@ -11,7 +13,7 @@ public class ShakurElVaquero extends Personaje {
 
 	private ArmaVaquera armaVaquera;
 
-	public ShakurElVaquero(String nombre, int vida, BufferedImage imagen, ArrayList<Arma> arma, ArmaVaquera armaVaquera ) {
+	public ShakurElVaquero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> arma, ArmaVaquera armaVaquera ) {
 		super(nombre, vida, imagen, arma);
 		
 		this.armaVaquera=armaVaquera;

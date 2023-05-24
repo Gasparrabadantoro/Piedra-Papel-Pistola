@@ -3,17 +3,19 @@ package personaje;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import armasConvencionales.Arma;
 
-public class Personaje extends ElementoConNombre{
-	
-	static  int vida;
-	
-	protected  BufferedImage imagen;
-	
-	private ArrayList<Arma>armas;
+public class Personaje extends ElementoConNombre {
 
-	public Personaje(String nombre, int vida, BufferedImage imagen, ArrayList<Arma> armas) {
+	static int vida;
+
+	protected ImageIcon imagen;
+
+	private ArrayList<Arma> armas;
+
+	public Personaje(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas) {
 		super(nombre);
 		this.vida = vida;
 		this.imagen = imagen;
@@ -28,11 +30,11 @@ public class Personaje extends ElementoConNombre{
 		this.vida = vida;
 	}
 
-	public BufferedImage getImagen() {
+	public ImageIcon getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(BufferedImage imagen) {
+	public void setImagen(ImageIcon imagen) {
 		this.imagen = imagen;
 	}
 
@@ -45,9 +47,8 @@ public class Personaje extends ElementoConNombre{
 	}
 
 	public void lanzarDecision() {
-		
-		String frase="Has implementado esta decision";
+
+		String frase = "Has implementado esta decision";
 	}
-	
 
 }
