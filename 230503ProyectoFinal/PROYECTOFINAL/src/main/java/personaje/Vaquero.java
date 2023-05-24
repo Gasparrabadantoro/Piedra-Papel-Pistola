@@ -9,11 +9,11 @@ import armasConvencionales.Arma;
 import armasVaquera.ArmaVaquera;
 import personaje.Personaje;
 
-public class ShakurElVaquero extends Personaje {
+public class Vaquero extends Personaje {
 
 	private ArmaVaquera armaVaquera;
 
-	public ShakurElVaquero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> arma, ArmaVaquera armaVaquera ) {
+	public Vaquero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> arma, ArmaVaquera armaVaquera ) {
 		super(nombre, vida, imagen, arma);
 		
 		this.armaVaquera=armaVaquera;

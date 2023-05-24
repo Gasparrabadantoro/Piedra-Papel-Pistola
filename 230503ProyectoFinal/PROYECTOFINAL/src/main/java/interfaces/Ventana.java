@@ -9,11 +9,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 
 import personaje.Momia;
 import personaje.Personaje;
+import personaje.Samurai;
+import personaje.Torero;
+import personaje.Vaquero;
 
 import java.awt.GridBagLayout;
 
@@ -21,12 +25,17 @@ public class Ventana extends JFrame {
 
 	
 	protected ArrayList<Personaje> enemigos;
+	protected Personaje enemigo;
 	protected Personaje personaje;
 	
 	public Ventana() {
 		//
 		this.enemigos=new ArrayList<Personaje>();
-		enemigos.add(new Momia(getTitle(), 500, null, null));
+		enemigos.add(new Momia(getName(), 500, new ImageIcon(".\\images\\Personajes\\LaMomia.png"), null));
+		enemigos.add(new Torero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Torero.png"), null, null));
+		enemigos.add(new Vaquero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Vaquero.png"), null, null));
+		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"), null, null));
+		
 		//add a todos
 		//Usa un intercambio de valores para intercambiar aleatoriamente dos posiciones del array 100 veces
 		this.setContentPane(new PinchaAqui(this));

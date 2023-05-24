@@ -22,10 +22,10 @@ public class PantallaPartida extends JPanel {
 		imagenJugador.setIcon(jugador.getImagen());
 		add(imagenJugador);
 		
-		JLabel imagenMomia_1 = new JLabel("");
-		imagenMomia_1.setBounds(327, 29, 68, 80);
-		imagenJugador.setIcon(enemigo.getImagen());
-		add(imagenMomia_1);
+		JLabel imagenEnemigo = new JLabel("");
+		imagenEnemigo.setBounds(327, 29, 68, 80);
+		imagenEnemigo.setIcon(enemigo.getImagen());
+		add(imagenEnemigo);
 		
 		
 

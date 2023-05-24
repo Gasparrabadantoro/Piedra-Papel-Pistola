@@ -5,17 +5,19 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import armaTorera.ArmaTorera;
+import armaSamurai.ArmaSamurai;
 import armasConvencionales.Arma;
 
-public class RamirezElTorero extends Personaje {
-
-	private ArmaTorera armaTorera;
+public class Samurai extends Personaje {
 	
-	public RamirezElTorero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaTorera armaTorera) {
+	private ArmaSamurai armaSamurai;
+
+	public Samurai(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaSamurai armaSamurai ) {
 		super(nombre, vida, imagen, armas);
 		
-		this.armaTorera=armaTorera;
+		this.armaSamurai=armaSamurai;
+	
+		
 		
 	}
 
@@ -24,7 +26,6 @@ public class RamirezElTorero extends Personaje {
 		// TODO Auto-generated method stub
 		super.lanzarDecision();
 	}
-	
-	
 
+	
 }
