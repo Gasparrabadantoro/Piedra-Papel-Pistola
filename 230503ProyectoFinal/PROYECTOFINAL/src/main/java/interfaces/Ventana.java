@@ -1,22 +1,39 @@
 package interfaces;
 
 import java.awt.image.BufferedImage;
+
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
+
+import personaje.Momia;
+import personaje.Personaje;
+
 import java.awt.GridBagLayout;
 
 public class Ventana extends JFrame {
+
+	
+	protected ArrayList<Personaje> enemigos;
+	protected Personaje personaje;
 	
 	public Ventana() {
 		//
-		this.setContentPane(new PantallaInicio(this));
+		this.enemigos=new ArrayList<Personaje>();
+		enemigos.add(new Momia(getTitle(), 500, null, null));
+		//add a todos
+		//Usa un intercambio de valores para intercambiar aleatoriamente dos posiciones del array 100 veces
+		this.setContentPane(new PinchaAqui(this));
 		// para hacerlo visible
 		this.setVisible(true);
 		// para el tamaño
-		this.setSize(800,500);
+		this.setSize(700,500);
 		
 		// para el titulo
 		this.setTitle("Piedra-Papel-Pistola");
@@ -48,8 +65,10 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	public void cambiarAPantalla(Class<?> clase) {
+	public void cambiarAPantalla(Class<?> clase,Personaje jugador, Personaje enemigo) {
 		this.getContentPane().setVisible(false);
+		
+		
 		if (clase.equals(PantallaInicio.class)) {
 			this.setContentPane(new PantallaInicio(this));
 
@@ -61,6 +80,9 @@ public class Ventana extends JFrame {
 		
 			
 		}
+		if(clase.equals(PantallaPartida.class)) {
+			this.setContentPane(new PantallaPartida(this,jugador,enemigo));
+		}
 		
 		if(clase.equals(PantallaGameOver.class)) {
 			this.setContentPane(new PantallaGameOver(this));
@@ -69,12 +91,7 @@ public class Ventana extends JFrame {
 			
 		}
 		
-		if(clase.equals(PantallaTorneo.class)) {
-			this.setContentPane(new PantallaTorneo(this));
-			
 		
-			
-		}
 		
 		if(clase.equals(PantallaWinner.class)) {
 			this.setContentPane(new PantallaWinner(this));

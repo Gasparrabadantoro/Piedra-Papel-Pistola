@@ -9,7 +9,7 @@ public class Personaje extends ElementoConNombre{
 	
 	static  int vida;
 	
-	private  BufferedImage imagen;
+	protected  BufferedImage imagen;
 	
 	private ArrayList<Arma>armas;
 
