@@ -21,6 +21,11 @@ public class Samurai extends Personaje {
 		
 	}
 
+	
+	public Samurai( ImageIcon imagen, ArrayList<Arma> armas) {
+		super("Tomoe La Samurai",500, imagen, armas);
+		
+	}
 	@Override
 	public void lanzarDecision() {
 		// TODO Auto-generated method stub

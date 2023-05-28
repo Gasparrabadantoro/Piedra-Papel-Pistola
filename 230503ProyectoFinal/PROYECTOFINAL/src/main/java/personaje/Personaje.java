@@ -13,7 +13,7 @@ public class Personaje extends ElementoConNombre {
 
 	protected ImageIcon imagen;
 
-	private ArrayList<Arma> armas;
+	protected ArrayList<Arma> armas;
 
 	public Personaje(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas) {
 		super(nombre);

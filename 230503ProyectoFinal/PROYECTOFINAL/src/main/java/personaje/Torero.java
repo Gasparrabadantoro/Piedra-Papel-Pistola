@@ -18,6 +18,15 @@ public class Torero extends Personaje {
 		this.armaTorera=armaTorera;
 		
 	}
+	
+	public Torero( ImageIcon imagen, ArrayList<Arma> armas) {
+		super("Ramirez el Torero ", 400, imagen, armas);
+		
+		
+		
+	}
+	
+	
 
 	@Override
 	public void lanzarDecision() {

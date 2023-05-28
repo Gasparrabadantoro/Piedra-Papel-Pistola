@@ -3,13 +3,15 @@ package armasVaquera;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 import personaje.Personaje;
 
 public class Berringer extends ArmaVaquera {
 
 	Random r = new Random();
 
-	public Berringer(String nombre, int daño, byte usosEnCombate, BufferedImage imagen) {
+	public Berringer(String nombre, int daño, byte usosEnCombate, ImageIcon imagen) {
 		super(nombre, daño, usosEnCombate, imagen);
 		// TODO Auto-generated constructor stub
 	}

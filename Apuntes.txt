@@ -12,3 +12,20 @@ Si pierdo : Pantalla game over. Boton de volver a intentar, cuando le dé
 
 vuelvo a la pantalla inicial, que es donde escoges personaje y demás. 
 
+---27-05-23
+
+Cambios hechos,hemos comprobado que la eleccion de personajes funciona (aunque se repita
+la elección de personaje, pero eso ya lo veremos)
+
+Ahora toca el tema de las armas (piedra papel y tijera)
+
+He tenido que igual que cambiar en la ventana hemos puesto que  cuando elijamos personaje
+
+pongamos personaje jugador y personaje enemigo tenemos que hacer exactamente lo mismo 
+con las armas, pero estamos teniendo problemas, pues tenemos que desplegar mas cosas
+
+(a ver como lo hago)
+
+Primero voy a empezar simplemente con meter piedra papel y tijera y luego escalaremos a 
+
+

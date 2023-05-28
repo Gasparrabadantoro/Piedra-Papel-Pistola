@@ -12,7 +12,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-
+import armasConvencionales.Arma;
+import armasConvencionales.Papel;
+import armasConvencionales.Piedra;
+import armasConvencionales.Tijera;
 import personaje.Momia;
 import personaje.Personaje;
 import personaje.Samurai;
@@ -25,16 +28,23 @@ public class Ventana extends JFrame {
 
 	
 	protected ArrayList<Personaje> enemigos;
+	protected ArrayList<Arma>armas;
 	protected Personaje enemigo;
 	protected Personaje personaje;
 	
+	
+	
 	public Ventana() {
-		//
+		this.armas=new ArrayList<Arma>();
+		armas.add(new Papel("Papel",100 , (byte) 1, new ImageIcon(".\\images\\Papel.png")));
+		armas.add(new Piedra("Piedra",150 , (byte) 1, new ImageIcon(".\\images\\piedra.png")));
+		armas.add(new Tijera("Tijera",170 , (byte) 1, new ImageIcon(".\\images\\tijera.png")));
+		
 		this.enemigos=new ArrayList<Personaje>();
-		enemigos.add(new Momia(getName(), 500, new ImageIcon(".\\images\\Personajes\\LaMomia.png"), null));
-		enemigos.add(new Torero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Torero.png"), null, null));
-		enemigos.add(new Vaquero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Vaquero.png"), null, null));
-		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"), null, null));
+		enemigos.add(new Momia(getName(), 300, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
+		enemigos.add(new Torero(getName(), 650, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas,null));
+		enemigos.add(new Vaquero(getName(), 400, new ImageIcon(".\\images\\Personajes\\Vaquero.png"),armas, null));
+		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas, null));
 		
 		//add a todos
 		//Usa un intercambio de valores para intercambiar aleatoriamente dos posiciones del array 100 veces

@@ -2,23 +2,39 @@ package armasConvencionales;
 
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
+
 import personaje.ElementoConNombre;
 import personaje.Personaje;
 
 public class Arma extends ElementoConNombre  {
 	
-	private int daño;
+	protected int daño;
 	
-	private byte usosEnCombate;
+	protected byte usosEnCombate;
 	
-	private BufferedImage imagen;
+	protected  ImageIcon imagen;
+	protected Piedra piedra;
+	protected Papel papel;
+	protected Tijera tijera;
+	
+	
+	
 
-	public Arma(String nombre, int daño, byte usosEnCombate, BufferedImage imagen) {
+	public Arma(String nombre, int daño, byte usosEnCombate,  ImageIcon imagen,Piedra piedra,Papel papel,Tijera tijera) {
 		super(nombre);
 		this.daño = daño;
 		this.usosEnCombate = usosEnCombate;
 		this.imagen = imagen;
 	}
+	
+	public Arma(String nombre, int daño, byte usosEnCombate, ImageIcon imagen) {
+		super(nombre);
+		this.daño = daño;
+		this.usosEnCombate = usosEnCombate;
+		this.imagen = imagen;
+	}
+
 
 	public int getDaño() {
 		return daño;
@@ -36,11 +52,11 @@ public class Arma extends ElementoConNombre  {
 		this.usosEnCombate = usosEnCombate;
 	}
 
-	public BufferedImage getImagen() {
+	public ImageIcon getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(BufferedImage imagen) {
+	public void setImagen(ImageIcon imagen) {
 		this.imagen = imagen;
 	}
 

@@ -4,3 +4,5 @@ Hacer primera pantalla, para poder probar el juego.
 
 Inicio-Crear personaje-Torneo(Hacer mecánica piedra/papel/tijera). 
 
+
+Errores(No funciona lo de que si el jugador es igual que el enemigo lo repita )

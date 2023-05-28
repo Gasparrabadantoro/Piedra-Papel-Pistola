@@ -5,6 +5,7 @@ import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -17,8 +18,11 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
+import armasConvencionales.Arma;
 import personaje.Momia;
+import personaje.Samurai;
 import personaje.Torero;
+import personaje.Vaquero;
 
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
@@ -27,6 +31,7 @@ import java.awt.event.MouseEvent;
 public class PantallaEleccionPersonaje extends JPanel {
 
 	private Ventana ventana;
+	private ArrayList<Arma>arma;
 
 	// Seguir por aqui, meter mas Personajes
 
@@ -75,7 +80,8 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.personaje = new Momia(new ImageIcon(".\\images\\Personajes\\LaMomia.png"), null);
+				v.personaje = new Momia(new ImageIcon(".\\images\\Personajes\\LaMomia.png"),v.armas);
+				
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (v.personaje == v.enemigo) {
 					numeroAleatorio = (byte) r.nextInt(4);
@@ -87,6 +93,27 @@ public class PantallaEleccionPersonaje extends JPanel {
 		});
 
 		JLabel imagenVaquero = new JLabel("");
+		imagenVaquero.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				Random r = new Random();
+
+				byte numeroAleatorio;
+
+				numeroAleatorio = (byte) r.nextInt(4);
+
+				v.personaje = new Vaquero(new ImageIcon(".\\images\\Personajes\\Vaquero.png"), v.armas);
+				v.enemigo = v.enemigos.get(numeroAleatorio);
+				while (v.personaje == v.enemigo) {
+					numeroAleatorio = (byte) r.nextInt(4);
+
+					v.enemigo = v.enemigos.get(numeroAleatorio);
+				}
+				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+			
+			}
+		});
 		imagenVaquero.setBounds(349, 21, 116, 133);
 		add(imagenVaquero);
 
@@ -107,6 +134,30 @@ public class PantallaEleccionPersonaje extends JPanel {
 		}
 
 		JLabel imagenSamurai = new JLabel("");
+		imagenSamurai.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				Random r = new Random();
+
+				byte numeroAleatorio;
+
+				numeroAleatorio = (byte) r.nextInt(4);
+
+				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
+				System.out.println(v.armas);
+				v.enemigo = v.enemigos.get(numeroAleatorio);
+				while (v.personaje == v.enemigo) {
+					numeroAleatorio = (byte) r.nextInt(4);
+
+					v.enemigo = v.enemigos.get(numeroAleatorio);
+				}
+				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+			
+			}
+				
+			
+		});
 		imagenSamurai.setBounds(35, 311, 116, 133);
 		add(imagenSamurai);
 
@@ -139,6 +190,28 @@ public class PantallaEleccionPersonaje extends JPanel {
 		}
 
 		JLabel imagenTorero = new JLabel("");
+		imagenTorero.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+
+				Random r = new Random();
+
+				byte numeroAleatorio;
+
+				numeroAleatorio = (byte) r.nextInt(4);
+
+				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Torero.png"), v.armas);
+				v.enemigo = v.enemigos.get(numeroAleatorio);
+				while (v.personaje == v.enemigo) {
+					numeroAleatorio = (byte) r.nextInt(4);
+
+					v.enemigo = v.enemigos.get(numeroAleatorio);
+				}
+				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+			
+			}
+		});
 		imagenTorero.setBounds(349, 311, 116, 133);
 		add(imagenTorero);
 
