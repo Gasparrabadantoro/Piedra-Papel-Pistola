@@ -14,6 +14,7 @@ import armasConvencionales.Tijera;
 
 import javax.swing.JSeparator;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 
 public class PantallaPartida extends JPanel {
@@ -27,31 +28,31 @@ public class PantallaPartida extends JPanel {
 		setLayout(null);
 		/*Jugador*/
 		JLabel imagenJugador = new JLabel("");
-		imagenJugador.setBounds(33, 29, 68, 80);
+		imagenJugador.setBounds(40, 29, 68, 80);
 		imagenJugador.setIcon(jugador.getImagen());
 		add(imagenJugador);
 		
 		JLabel imagenEnemigo = new JLabel("");
-		imagenEnemigo.setBounds(429, 29, 68, 80);
+		imagenEnemigo.setBounds(528, 29, 68, 80);
 		imagenEnemigo.setIcon(enemigo.getImagen());
 		add(imagenEnemigo);
 		
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("New JGoodies label");
-		lblNewJgoodiesLabel.setBounds(9, 63, 92, 14);
-		add(lblNewJgoodiesLabel);
-		
-		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("New JGoodies label");
-		lblNewJgoodiesLabel_1.setBounds(417, 63, 92, 14);
-		add(lblNewJgoodiesLabel_1);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(285, 0, 0, 363);
-		add(separator);
+		JLabel imagenPapel = new JLabel("");
+		imagenPapel.setBounds(230, 122, 80, 74);
+		imagenPapel.setIcon(jugador.getArmas().get(0).getImagen());
+		add(imagenPapel);
 		
 		JLabel imagenPiedra = new JLabel("");
-		imagenPiedra.setBounds(10, 120, 80, 74);
+		imagenPiedra.setBounds(109, 212, 80, 74);
 		imagenPiedra.setIcon(jugador.getArmas().get(1).getImagen());
 		add(imagenPiedra);
+		
+		JLabel imagenTijera = new JLabel("");
+		imagenTijera.setBounds(159, 29, 68, 80);
+		imagenTijera.setIcon(jugador.getArmas().get(2).getImagen());
+		add(imagenTijera);
+		
+		
 		
 		// ESTO mismo pero con todo lo demas, 
 		/*JLabel imagenPiedra = new JLabel("");

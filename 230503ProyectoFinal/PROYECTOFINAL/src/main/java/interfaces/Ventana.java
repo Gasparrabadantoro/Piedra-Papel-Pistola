@@ -35,10 +35,15 @@ public class Ventana extends JFrame {
 	
 	
 	public Ventana() {
+		
 		this.armas=new ArrayList<Arma>();
-		armas.add(new Papel("Papel",100 , (byte) 1, new ImageIcon(".\\images\\Papel.png")));
-		armas.add(new Piedra("Piedra",150 , (byte) 1, new ImageIcon(".\\images\\piedra.png")));
-		armas.add(new Tijera("Tijera",170 , (byte) 1, new ImageIcon(".\\images\\tijera.png")));
+		
+		armas.add(new Papel("Papel", 100, (byte) 1, new ImageIcon("images\\Papel.png")));
+		armas.add(new Piedra("Piedra", 150, (byte) 2, new ImageIcon("images\\Piedra.png")));
+		armas.add(new Tijera("Tijera", 170, (byte) 3, new ImageIcon("images\\Tijera.png")));
+		
+	
+		
 		
 		this.enemigos=new ArrayList<Personaje>();
 		enemigos.add(new Momia(getName(), 300, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
@@ -64,9 +69,11 @@ public class Ventana extends JFrame {
 		// Para que no se pueda cambiar el tamaño de la ventana
 		this.setResizable(false);
 		
+		
+		
 		BufferedImage icono;
         try {
-            icono = ImageIO.read(new File("images/hoz.png"));
+            icono = ImageIO.read(new File("images/piedra.png"));
             this.setIconImage(icono);
             GridBagLayout gridBagLayout = new GridBagLayout();
             gridBagLayout.columnWidths = new int[]{0};

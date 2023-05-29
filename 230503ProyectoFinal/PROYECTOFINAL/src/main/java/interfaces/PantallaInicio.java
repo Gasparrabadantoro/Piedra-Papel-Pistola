@@ -32,7 +32,7 @@ public class PantallaInicio extends JPanel {
 		
 		JButton botonJugar = new JButton("Jugar");
 		botonJugar.setBackground(new Color(0, 0, 0));
-		botonJugar.setBounds(41, 82, 171, 49);
+		botonJugar.setBounds(249, 80, 171, 49);
 		botonJugar.setVerticalAlignment(SwingConstants.TOP);
 		botonJugar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -51,29 +51,29 @@ public class PantallaInicio extends JPanel {
 		
 		JButton botonSalir = new JButton("Salir");
 		botonSalir.setBackground(new Color(0, 0, 0));
-		botonSalir.setBounds(311, 82, 165, 49);
+		botonSalir.setBounds(519, 80, 165, 49);
 		botonSalir.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 33));
 		add(botonSalir);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Gaspar\\Desktop\\230503ProyectoFinal\\PROYECTOFINAL\\images\\piedra.png"));
-		lblNewLabel.setBounds(52, 176, 87, 49);
+		lblNewLabel.setIcon(new ImageIcon(".\\images\\Piedra.png"));
+		lblNewLabel.setBounds(260, 174, 87, 49);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Gaspar\\Desktop\\230503ProyectoFinal\\PROYECTOFINAL\\images\\Papel.png"));
-		lblNewLabel_2.setBounds(205, 176, 87, 49);
+		lblNewLabel_2.setIcon(new ImageIcon(".\\images\\Papel.png"));
+		lblNewLabel_2.setBounds(413, 174, 87, 49);
 		add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Gaspar\\Desktop\\230503ProyectoFinal\\PROYECTOFINAL\\images\\revolver.png"));
-		lblNewLabel_3.setBounds(387, 176, 87, 49);
+		lblNewLabel_3.setIcon(new ImageIcon(".\\images\\revolver.png"));
+		lblNewLabel_3.setBounds(595, 174, 87, 49);
 		add(lblNewLabel_3);
 		
 		JTextPane txtpnBienvenidAlCampeonato = new JTextPane();
 		txtpnBienvenidAlCampeonato.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 11));
 		txtpnBienvenidAlCampeonato.setText("Bienvenid@ al campeonato oficial de Piedra-Papel-Pistola,\r\n¿Eres lo suficientemente valiente o tontuna como para meterte aqui?\r\n\r\nPulsa en Salir si eres un pusilánime total  o echale p*lotas al asunto ");
-		txtpnBienvenidAlCampeonato.setBounds(52, 261, 426, 121);
+		txtpnBienvenidAlCampeonato.setBounds(260, 259, 426, 121);
 		add(txtpnBienvenidAlCampeonato);
 		
 		JTextPane txtpnPiedrapapelpistola = new JTextPane();
@@ -81,7 +81,7 @@ public class PantallaInicio extends JPanel {
 		txtpnPiedrapapelpistola.setBackground(new Color(0, 0, 0));
 		txtpnPiedrapapelpistola.setText("PIEDRA-PAPEL-PISTOLA");
 		txtpnPiedrapapelpistola.setForeground(new Color(255, 255, 255));
-		txtpnPiedrapapelpistola.setBounds(132, 30, 214, 41);
+		txtpnPiedrapapelpistola.setBounds(340, 28, 214, 41);
 		add(txtpnPiedrapapelpistola);
 		
 		
