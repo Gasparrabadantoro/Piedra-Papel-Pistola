@@ -27,7 +27,7 @@ public class PantallaInicio extends JPanel {
 	public PantallaInicio(Ventana v) {
 		setBackground(new Color(0, 0, 0));
 		
-
+		
 		this.ventana = v;
 		
 		JButton botonJugar = new JButton("Jugar");
@@ -81,7 +81,7 @@ public class PantallaInicio extends JPanel {
 		txtpnPiedrapapelpistola.setBackground(new Color(0, 0, 0));
 		txtpnPiedrapapelpistola.setText("PIEDRA-PAPEL-PISTOLA");
 		txtpnPiedrapapelpistola.setForeground(new Color(255, 255, 255));
-		txtpnPiedrapapelpistola.setBounds(340, 28, 214, 41);
+		txtpnPiedrapapelpistola.setBounds(157, 28, 397, 41);
 		add(txtpnPiedrapapelpistola);
 		
 		

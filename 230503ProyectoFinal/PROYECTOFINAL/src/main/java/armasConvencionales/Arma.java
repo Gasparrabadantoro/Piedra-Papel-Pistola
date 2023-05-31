@@ -14,9 +14,8 @@ public class Arma extends ElementoConNombre  {
 	protected byte usosEnCombate;
 	
 	protected  ImageIcon imagen;
-	protected Piedra piedra;
-	protected Papel papel;
-	protected Tijera tijera;
+
+	
 	
 	
 	

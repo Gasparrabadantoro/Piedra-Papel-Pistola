@@ -20,6 +20,7 @@ import javax.swing.SwingConstants;
 
 import armasConvencionales.Arma;
 import personaje.Momia;
+import personaje.Personaje;
 import personaje.Samurai;
 import personaje.Torero;
 import personaje.Vaquero;
@@ -31,12 +32,23 @@ import java.awt.event.MouseEvent;
 public class PantallaEleccionPersonaje extends JPanel {
 
 	private Ventana ventana;
-	private ArrayList<Arma>arma;
+	private ArrayList<Arma>armas;
+	private ArrayList<Personaje>personaje;
+	protected ArrayList<Personaje> enemigos;
+	private byte personajeElegido=-1;
 
 	// Seguir por aqui, meter mas Personajes
+	
+	
 
 	public PantallaEleccionPersonaje(Ventana v) {
 		setBackground(new Color(255, 255, 255));
+		
+		this.enemigos=new ArrayList<Personaje>();
+		enemigos.add(new Momia(getName(), 300, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
+		enemigos.add(new Torero(getName(), 650, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas,null));
+		enemigos.add(new Vaquero(getName(), 400, new ImageIcon(".\\images\\Personajes\\Vaquero.png"),armas, null));
+		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas, null));
 
 		this.ventana = v;
 		setLayout(null);
@@ -74,6 +86,8 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				personajeElegido=0;
+				
 				Random r = new Random();
 
 				byte numeroAleatorio;
@@ -83,7 +97,10 @@ public class PantallaEleccionPersonaje extends JPanel {
 				v.personaje = new Momia(new ImageIcon(".\\images\\Personajes\\LaMomia.png"),v.armas);
 				
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (v.personaje == v.enemigo) {
+				
+				
+				while (personajeElegido == numeroAleatorio) {
+					
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
@@ -97,6 +114,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				personajeElegido=1;
 				Random r = new Random();
 
 				byte numeroAleatorio;
@@ -105,7 +123,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				v.personaje = new Vaquero(new ImageIcon(".\\images\\Personajes\\Vaquero.png"), v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (v.personaje == v.enemigo) {
+				while (personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
@@ -138,6 +156,8 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				personajeElegido=2;
+				
 				Random r = new Random();
 
 				byte numeroAleatorio;
@@ -147,7 +167,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
 				System.out.println(v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (v.personaje == v.enemigo) {
+				while (personajeElegido == numeroAleatorio ) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
@@ -194,6 +214,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				personajeElegido=3;
 
 				Random r = new Random();
 
@@ -203,7 +224,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Torero.png"), v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (v.personaje == v.enemigo) {
+				while (personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);

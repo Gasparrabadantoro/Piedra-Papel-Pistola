@@ -28,12 +28,6 @@ public class Torero extends Personaje {
 	
 	
 
-	@Override
-	public void lanzarDecision() {
-		// TODO Auto-generated method stub
-		super.lanzarDecision();
-	}
-	
 	
 
 }

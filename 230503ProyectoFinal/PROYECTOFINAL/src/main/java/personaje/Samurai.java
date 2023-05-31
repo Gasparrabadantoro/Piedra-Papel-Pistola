@@ -26,11 +26,6 @@ public class Samurai extends Personaje {
 		super("Tomoe La Samurai",500, imagen, armas);
 		
 	}
-	@Override
-	public void lanzarDecision() {
-		// TODO Auto-generated method stub
-		super.lanzarDecision();
-	}
-
+	
 	
 }
