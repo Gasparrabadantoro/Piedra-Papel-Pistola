@@ -12,10 +12,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import armaSamurai.Katana;
+import armaTorera.Estoque;
 import armasConvencionales.Arma;
 import armasConvencionales.Papel;
 import armasConvencionales.Piedra;
 import armasConvencionales.Tijera;
+import armasMomia.Escudo;
+import armasVaquera.Revolver;
 import personaje.Momia;
 import personaje.Personaje;
 import personaje.Samurai;
@@ -30,17 +34,29 @@ public class Ventana extends JFrame {
 	protected ArrayList<Personaje> enemigos;
 	protected ArrayList<Arma>armas;
 	protected Personaje enemigo;
-	protected Personaje personaje;
+	protected Personaje jugador;
 	
 	
 	
 	public Ventana() {
-		
+		/*Armas Convencionales*/
 		this.armas=new ArrayList<Arma>();
 		
 		armas.add(new Papel("Papel", 100, (byte) 1, new ImageIcon("images\\Papel.png")));
 		armas.add(new Piedra("Piedra", 150, (byte) 2, new ImageIcon("images\\Piedra.png")));
 		armas.add(new Tijera("Tijera", 170, (byte) 3, new ImageIcon("images\\Tijera.png")));
+		
+		/*Armas Especiales */
+		/*ArmaEspecialMomia*/
+		armas.add(new Escudo("Escudo", 0, (byte) 1, new ImageIcon("images\\Escudo.png")));
+		/*ArmaEspecialVaquera*/
+		armas.add(new Revolver("Piedra", 150, (byte) 2, new ImageIcon("images\\Revolver.png")));
+		/*ArmaEspecialTorera*/
+		armas.add(new Estoque("Estoque", 170, (byte) 3, new ImageIcon("images\\Estoque.png")));
+		/*ArmaEspecialSamurai*/
+		armas.add(new Katana("Katana", 170, (byte) 3, new ImageIcon("images\\Katana.png")));
+		
+		
 		
 	
 		

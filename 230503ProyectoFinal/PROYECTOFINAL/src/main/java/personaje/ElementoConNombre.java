@@ -8,6 +8,10 @@ public abstract class ElementoConNombre {
 		super();
 		this.nombre = nombre;
 	}
+	
+	public ElementoConNombre() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;

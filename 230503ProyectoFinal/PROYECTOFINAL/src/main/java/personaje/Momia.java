@@ -14,7 +14,7 @@ import armasMomia.ArmaMomia;
 
 public class Momia  extends Personaje{
 	
-	private static ArmaMomia armaMomia;
+	protected static ArmaMomia armaMomia;
 	
 	protected static Piedra piedra;
 	protected static Papel papel;
@@ -25,12 +25,20 @@ public class Momia  extends Personaje{
 		super("HashSetSut La Momia ", 500, imagen, armas);
 		// TODO Auto-generated constructor stub
 		
-		this.armaMomia=armaMomia;
+		//this.armaMomia=armaMomia;
 	}
 	
-	public Momia( ImageIcon imagen, ArrayList<Arma> armas) {
+	public Momia(ImageIcon imagen, ArrayList<Arma> armas) {
 		super("HashSetSut La Momia ", 500, imagen,armas);
 		
+	}
+	
+	public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
 	}
 	
 	

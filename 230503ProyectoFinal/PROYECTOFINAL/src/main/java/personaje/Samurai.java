@@ -13,7 +13,7 @@ public class Samurai extends Personaje {
 	private ArmaSamurai armaSamurai;
 
 	public Samurai(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaSamurai armaSamurai ) {
-		super(nombre, vida, imagen, armas);
+		super("Tomoe La Samurai", 600, imagen, armas);
 		
 		this.armaSamurai=armaSamurai;
 	

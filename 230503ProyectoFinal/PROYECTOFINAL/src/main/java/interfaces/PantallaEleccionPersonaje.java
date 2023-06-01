@@ -94,7 +94,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.personaje = new Momia(new ImageIcon(".\\images\\Personajes\\LaMomia.png"),v.armas);
+				v.jugador = new Momia("HashSetSut La Momia ", 400,new ImageIcon(".\\images\\Personajes\\LaMomia.png"),v.armas);
 				
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				
@@ -105,7 +105,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
-				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			}
 		});
 
@@ -121,14 +121,14 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.personaje = new Vaquero(new ImageIcon(".\\images\\Personajes\\Vaquero.png"), v.armas);
+				v.jugador = new Vaquero(new ImageIcon(".\\images\\Personajes\\Vaquero.png"), v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
-				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
 		});
@@ -164,7 +164,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
+				v.jugador = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
 				System.out.println(v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (personajeElegido == numeroAleatorio ) {
@@ -172,7 +172,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
-				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
 				
@@ -222,14 +222,14 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.personaje = new Samurai(new ImageIcon(".\\images\\Personajes\\Torero.png"), v.armas);
+				v.jugador = new Samurai(new ImageIcon(".\\images\\Personajes\\Torero.png"), v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
-				v.cambiarAPantalla(PantallaPartida.class, v.personaje, v.enemigo);
+				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
 		});

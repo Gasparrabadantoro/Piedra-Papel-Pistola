@@ -13,7 +13,7 @@ public class Torero extends Personaje {
 	private ArmaTorera armaTorera;
 	
 	public Torero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaTorera armaTorera) {
-		super(nombre, vida, imagen, armas);
+		super("Ramirez el Torero ", 400, imagen, armas);
 		
 		this.armaTorera=armaTorera;
 		

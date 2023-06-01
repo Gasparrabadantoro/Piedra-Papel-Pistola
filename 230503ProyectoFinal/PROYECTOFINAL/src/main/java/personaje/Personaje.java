@@ -9,10 +9,11 @@ import armasConvencionales.Arma;
 import armasConvencionales.Papel;
 import armasConvencionales.Piedra;
 import armasConvencionales.Tijera;
+import armasMomia.Escudo;
 
 public class Personaje extends ElementoConNombre {
 
-	static int vida;
+	protected int vida;
 
 	protected ImageIcon imagen;
 
@@ -25,6 +26,10 @@ public class Personaje extends ElementoConNombre {
 		this.vida = vida;
 		this.imagen = imagen;
 		this.armas = armas;
+	}
+	
+	public Personaje() {
+		
 	}
 
 	public int getVida() {
@@ -97,10 +102,30 @@ public class Personaje extends ElementoConNombre {
 
 		} else if (personaje.getArmaActual().getClass() == Tijera.class
 				&& (enemigo.getArmaActual().getClass() == (Piedra.class))) {
-			personaje.setVida(personaje.getVida() - enemigo.getArmas().get(2).getDaño());
+			personaje.setVida(personaje.getVida() - enemigo.getArmas().get(1).getDaño());
 			JOptionPane.showMessageDialog(null, personaje.getNombre() + " ha recibido daño Piedril");
 			
 		}
+	}
+	
+	public void armaEspecial(Personaje personaje,Personaje enemigo) {
+		
+		if(personaje.getClass()==Momia.class) {
+			
+			Escudo escudo=(Escudo) personaje.getArmas().get(3);
+			personaje.setArmaActual(escudo);
+			if (enemigo.getArmaActual().getClass() == (Piedra.class)
+					|| enemigo.getArmaActual().getClass() == (Papel.class)
+					|| enemigo.getArmaActual().getClass() == (Tijera.class)) {
+				
+				escudo.defender(personaje, 0);
+			}
+			
+			JOptionPane.showMessageDialog(null, personaje.getNombre() + " se ha defendido y no ha recibido daño");
+			
+
+		}
+		
 	}
 
 }
