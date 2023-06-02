@@ -222,7 +222,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				numeroAleatorio = (byte) r.nextInt(4);
 
-				v.jugador = new Samurai(new ImageIcon(".\\images\\Personajes\\Torero.png"), v.armas);
+				v.jugador = new Torero(new ImageIcon(".\\images\\Personajes\\Torero.png"),v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);

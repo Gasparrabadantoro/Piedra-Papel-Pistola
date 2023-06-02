@@ -42,19 +42,20 @@ public class Ventana extends JFrame {
 		/*Armas Convencionales*/
 		this.armas=new ArrayList<Arma>();
 		
-		armas.add(new Papel("Papel", 100, (byte) 1, new ImageIcon("images\\Papel.png")));
-		armas.add(new Piedra("Piedra", 150, (byte) 2, new ImageIcon("images\\Piedra.png")));
-		armas.add(new Tijera("Tijera", 170, (byte) 3, new ImageIcon("images\\Tijera.png")));
+		armas.add(new Papel("Papel", 50, (byte) 1, new ImageIcon("images\\Papel.png")));
+		armas.add(new Piedra("Piedra", 50, (byte) 2, new ImageIcon("images\\Piedra.png")));
+		armas.add(new Tijera("Tijera", 50, (byte) 3, new ImageIcon("images\\Tijera.png")));
 		
 		/*Armas Especiales */
 		/*ArmaEspecialMomia*/
 		armas.add(new Escudo("Escudo", 0, (byte) 1, new ImageIcon("images\\Escudo.png")));
 		/*ArmaEspecialVaquera*/
-		armas.add(new Revolver("Piedra", 150, (byte) 2, new ImageIcon("images\\Revolver.png")));
-		/*ArmaEspecialTorera*/
-		armas.add(new Estoque("Estoque", 170, (byte) 3, new ImageIcon("images\\Estoque.png")));
+		armas.add(new Revolver("Revolver", 150, (byte) 2, new ImageIcon("images\\revolver.png")));
 		/*ArmaEspecialSamurai*/
 		armas.add(new Katana("Katana", 170, (byte) 3, new ImageIcon("images\\Katana.png")));
+		/*ArmaEspecialTorera*/
+
+		armas.add(new Estoque("Estoque",190,(byte)3,new ImageIcon("images\\estoque.png")));
 		
 		
 		

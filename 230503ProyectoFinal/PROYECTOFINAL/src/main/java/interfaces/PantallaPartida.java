@@ -9,11 +9,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import armaSamurai.Katana;
+import armaTorera.Estoque;
 import armasConvencionales.Papel;
 import armasConvencionales.Piedra;
 import armasConvencionales.Tijera;
 import armasMomia.Escudo;
+import armasVaquera.Revolver;
+import personaje.Momia;
 import personaje.Personaje;
+import personaje.Samurai;
+import personaje.Torero;
+import personaje.Vaquero;
 
 public class PantallaPartida extends JPanel {
 
@@ -25,10 +32,13 @@ public class PantallaPartida extends JPanel {
 
 		
 
-		Tijera tijeraT = new Tijera("Tijera", 200, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
-		Piedra piedraT = new Piedra("Piedra", 300, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
-		Papel papelT = new Papel("Papel", 500, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
+		Tijera tijeraT = new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
+		Piedra piedraT = new Piedra("Piedra", 0, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
+		Papel papelT = new Papel("Papel",0, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
 		Escudo escudoT=new Escudo("Escudo ", 0, (byte) 2, new ImageIcon(".\\images\\Escudo.png"));
+		Revolver revolverT=new Revolver("Revolver ", 300, (byte) 2, new ImageIcon(".\\images\\revolver.png"));
+		Katana katanaT=new Katana("Katana ", 300, (byte) 2, new ImageIcon(".\\images\\Katana.png"));
+		Estoque estoqueT=new Estoque("Estoque ", 300, (byte) 2, new ImageIcon(".\\images\\estoque.png"));
 		
 	
 		/*switch (numeroAleatorio) {
@@ -74,6 +84,23 @@ public class PantallaPartida extends JPanel {
 		
 
 		JLabel imagenPapel = new JLabel("");
+		imagenPapel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				jugador.setArmaActual(new Papel("Papel", 0, (byte) 2, new ImageIcon(".\\images\\Papel.png")));
+				
+				armaAleatoria(enemigo);
+				
+				
+				jugador.eleccionArma(jugador, enemigo);
+				
+				vidaPersonaje.setText("Vida : "+jugador.getVida());
+				vidaEnemigo.setText("Vida : "+enemigo.getVida());
+				
+				
+			}
+		});
 		imagenPapel.setBounds(230, 150, 80, 80);
 		imagenPapel.setIcon(v.jugador.getArmas().get(0).getImagen());
 		add(imagenPapel);
@@ -83,7 +110,7 @@ public class PantallaPartida extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				jugador.setArmaActual(new Piedra("Piedra", 200, (byte) 2, new ImageIcon(".\\images\\Piedra.png")));
+				jugador.setArmaActual(new Piedra("Piedra", 0, (byte) 2, new ImageIcon(".\\images\\Piedra.png")));
 				
 				armaAleatoria(enemigo);
 				
@@ -100,6 +127,24 @@ public class PantallaPartida extends JPanel {
 		add(imagenPiedra);
 
 		JLabel imagenTijera = new JLabel("");
+		imagenTijera.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				jugador.setArmaActual(new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png")));
+				
+				armaAleatoria(enemigo);
+				
+				
+				jugador.eleccionArma(jugador, enemigo);
+				
+				vidaPersonaje.setText("Vida : "+jugador.getVida());
+				vidaEnemigo.setText("Vida : "+enemigo.getVida());
+
+				
+				
+			}
+		});
 		imagenTijera.setBounds(128, 57, 95, 80);
 		imagenTijera.setIcon(jugador.getArmas().get(2).getImagen());
 		add(imagenTijera);
@@ -113,12 +158,29 @@ public class PantallaPartida extends JPanel {
 				
 				jugador.armaEspecial(jugador, enemigo);
 				
+				vidaPersonaje.setText("Vida : "+jugador.getVida());
+				vidaEnemigo.setText("Vida : "+enemigo.getVida());
+				
 				
 			}
 		});
 		jugadorImagenArmaEspecial.setBounds(138, 150, 95, 80);
-		jugadorImagenArmaEspecial.setIcon(jugador.getArmas().get(3).getImagen());
+		
+		if(jugador.getClass()==Vaquero.class) {
+			jugadorImagenArmaEspecial.setIcon(jugador.getArmas().get(4).getImagen());
+			add(jugadorImagenArmaEspecial);
+		}else if (jugador.getClass()==Momia.class) {
+			jugadorImagenArmaEspecial.setIcon(jugador.getArmas().get(3).getImagen());
 		add(jugadorImagenArmaEspecial);
+		}else if (jugador.getClass()==Samurai.class) {
+			jugadorImagenArmaEspecial.setIcon(jugador.getArmas().get(5).getImagen());
+		add(jugadorImagenArmaEspecial);
+		}else if(jugador.getClass()==Torero.class) {
+			jugadorImagenArmaEspecial.setIcon(jugador.getArmas().get(6).getImagen());
+			add(jugadorImagenArmaEspecial);
+			
+		}
+		
 
 		JLabel enemigoTijera = new JLabel("");
 		enemigoTijera.setBounds(529, 57, 95, 80);
@@ -152,9 +214,9 @@ public class PantallaPartida extends JPanel {
 		
 		Random r = new Random();
 		
-		Tijera tijeraT = new Tijera("Tijera", 200, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
-		Piedra piedraT = new Piedra("Piedra", 300, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
-		Papel papelT = new Papel("Papel", 500, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
+		Tijera tijeraT = new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
+		Piedra piedraT = new Piedra("Piedra", 0, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
+		Papel papelT = new Papel("Papel", 0, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
 		
 		
 		byte numeroAleatorio = (byte) r.nextInt(0, 3);

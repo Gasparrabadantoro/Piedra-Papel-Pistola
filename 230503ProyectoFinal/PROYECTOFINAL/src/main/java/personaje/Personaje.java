@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import armaSamurai.Katana;
+import armaTorera.Estoque;
 import armasConvencionales.Arma;
 import armasConvencionales.Papel;
 import armasConvencionales.Piedra;
 import armasConvencionales.Tijera;
 import armasMomia.Escudo;
+import armasVaquera.Revolver;
 
 public class Personaje extends ElementoConNombre {
 
@@ -27,9 +30,9 @@ public class Personaje extends ElementoConNombre {
 		this.imagen = imagen;
 		this.armas = armas;
 	}
-	
+
 	public Personaje() {
-		
+
 	}
 
 	public int getVida() {
@@ -83,7 +86,6 @@ public class Personaje extends ElementoConNombre {
 			personaje.setVida(personaje.getVida() - enemigo.getArmas().get(0).getDaño());
 			JOptionPane.showMessageDialog(null, personaje.getNombre() + " ha recibido daño Papelil");
 			// elección Papel
-		
 
 		} else if (personaje.getArmaActual().getClass() == Papel.class
 				&& (enemigo.getArmaActual().getClass() == (Piedra.class))) {
@@ -104,28 +106,73 @@ public class Personaje extends ElementoConNombre {
 				&& (enemigo.getArmaActual().getClass() == (Piedra.class))) {
 			personaje.setVida(personaje.getVida() - enemigo.getArmas().get(1).getDaño());
 			JOptionPane.showMessageDialog(null, personaje.getNombre() + " ha recibido daño Piedril");
-			
+
 		}
 	}
-	
-	public void armaEspecial(Personaje personaje,Personaje enemigo) {
-		
-		if(personaje.getClass()==Momia.class) {
-			
-			Escudo escudo=(Escudo) personaje.getArmas().get(3);
+
+	public void armaEspecial(Personaje personaje, Personaje enemigo) {
+//Momia arma
+		if (personaje.getClass() == Momia.class) {
+
+			Escudo escudo = (Escudo) personaje.getArmas().get(3);
 			personaje.setArmaActual(escudo);
 			if (enemigo.getArmaActual().getClass() == (Piedra.class)
 					|| enemigo.getArmaActual().getClass() == (Papel.class)
 					|| enemigo.getArmaActual().getClass() == (Tijera.class)) {
-				
+
 				escudo.defender(personaje, 0);
 			}
-			
-			JOptionPane.showMessageDialog(null, personaje.getNombre() + " se ha defendido y no ha recibido daño");
-			
 
+			JOptionPane.showMessageDialog(null, personaje.getNombre() + " se ha defendido y no ha recibido daño");
+			//Vaquero arma
+		} else if (personaje.getClass() == Vaquero.class) {
+
+			Revolver revolver = (Revolver) personaje.getArmas().get(4);
+			personaje.setArmaActual(revolver);
+
+			if (enemigo.getArmaActual().getClass() == (Piedra.class)
+					|| enemigo.getArmaActual().getClass() == (Papel.class)
+					|| enemigo.getArmaActual().getClass() == (Tijera.class)) {
+
+				revolver.Atacar(enemigo, 500);
+
+				JOptionPane.showMessageDialog(null,
+						enemigo.getNombre() + " Ha recibido un disparo de Revolver y ha sufrido 500 de daño ");
+			}
+			//Samurai arma
+		} else if (personaje.getClass() == Samurai.class) {
+
+			Katana katana = (Katana) personaje.getArmas().get(5);
+			personaje.setArmaActual(katana);
+
+			if (enemigo.getArmaActual().getClass() == (Piedra.class)
+					|| enemigo.getArmaActual().getClass() == (Papel.class)
+					|| enemigo.getArmaActual().getClass() == (Tijera.class)) {
+
+				katana.Atacar(enemigo, 0);
+
+				JOptionPane.showMessageDialog(null,
+						enemigo.getNombre() + " Ha recibido un corte de Katana y ha sufrido 250 de daño  ");
+
+			}
+			//Torero arma
+		} else if (personaje.getClass() == Torero.class){
+
+			Estoque estoque = (Estoque) personaje.getArmas().get(6);
+			personaje.setArmaActual(estoque);
+
+			if (enemigo.getArmaActual().getClass() == (Piedra.class)
+					|| enemigo.getArmaActual().getClass() == (Papel.class)
+					|| enemigo.getArmaActual().getClass() == (Tijera.class)) {
+
+				estoque.Atacar(enemigo, 0);
+
+				JOptionPane.showMessageDialog(null,
+						 " Olé mi niño que arte tiene que le ha dado una buena estocada a "+enemigo.getNombre());
+
+			}
 		}
-		
+
 	}
 
 }
