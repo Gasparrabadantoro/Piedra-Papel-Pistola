@@ -173,6 +173,13 @@ public class Personaje extends ElementoConNombre {
 			}
 		}
 
+	}public boolean estarVivo() {
+		if (this.vida==0) {
+			return false;
+		} else {
+			return true;
+		}
+
 	}
 
 }

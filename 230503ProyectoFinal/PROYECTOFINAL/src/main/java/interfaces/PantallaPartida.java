@@ -25,20 +25,22 @@ import personaje.Vaquero;
 public class PantallaPartida extends JPanel {
 
 	private Ventana ventana;
+	boolean estaVivo=true;
 	
-
 	public PantallaPartida(Ventana v, Personaje jugador, Personaje enemigo) {
 		setBackground(new Color(255, 255, 255));
+		
+		
 
 		
 
-		Tijera tijeraT = new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
+		/*Tijera tijeraT = new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
 		Piedra piedraT = new Piedra("Piedra", 0, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
 		Papel papelT = new Papel("Papel",0, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
 		Escudo escudoT=new Escudo("Escudo ", 0, (byte) 2, new ImageIcon(".\\images\\Escudo.png"));
 		Revolver revolverT=new Revolver("Revolver ", 300, (byte) 2, new ImageIcon(".\\images\\revolver.png"));
 		Katana katanaT=new Katana("Katana ", 300, (byte) 2, new ImageIcon(".\\images\\Katana.png"));
-		Estoque estoqueT=new Estoque("Estoque ", 300, (byte) 2, new ImageIcon(".\\images\\estoque.png"));
+		Estoque estoqueT=new Estoque("Estoque ", 300, (byte) 2, new ImageIcon(".\\images\\estoque.png"));*/
 		
 	
 		/*switch (numeroAleatorio) {
@@ -156,6 +158,7 @@ public class PantallaPartida extends JPanel {
 				
 				armaAleatoria(enemigo);
 				
+				
 				jugador.armaEspecial(jugador, enemigo);
 				
 				vidaPersonaje.setText("Vida : "+jugador.getVida());
@@ -198,8 +201,28 @@ public class PantallaPartida extends JPanel {
 		enemigoPiedra.setIcon(enemigo.getArmas().get(1).getImagen());
 		add(enemigoPiedra);
 		
+		
 
 		
+		
+			
+		
+			if((v.enemigo.estarVivo()==false)) {
+				
+				System.out.println("Estas muerto");
+				v.cambiarAPantalla(PantallaGameOver.class, null, null);
+			}
+			
+			
+			
+		
+	
+	
+		
+			
+			
+			
+		//}
 
 		// ESTO mismo pero con todo lo demas,
 		/*
