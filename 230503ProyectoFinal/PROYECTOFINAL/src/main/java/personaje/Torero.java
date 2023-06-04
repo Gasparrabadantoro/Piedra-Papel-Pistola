@@ -1,28 +1,46 @@
 package personaje;
 
-import java.awt.image.BufferedImage;
+
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
 import armaTorera.ArmaTorera;
 import armasConvencionales.Arma;
+import armasConvencionales.Papel;
+import armasConvencionales.Piedra;
+import armasConvencionales.Tijera;
+import armasMomia.ArmaMomia;
 
 public class Torero extends Personaje {
 
-	private ArmaTorera armaTorera;
+protected static ArmaTorera armaTorera;
 	
-	public Torero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas,ArmaTorera armaTorera) {
-		super("Ramirez el Torero ", 400, imagen, armas);
+	protected static Piedra piedra;
+	protected static Papel papel;
+	protected static Tijera tijera;
+	
+
+	public Torero(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas) {
+		super("Ramírez el Torero ", 400, imagen, armas);
+		// TODO Auto-generated constructor stub
 		
-		this.armaTorera=armaTorera;
+		//this.armaMomia=armaMomia;
+	}
+	
+	public Torero(ImageIcon imagen, ArrayList<Arma> armas) {
+		super("Ramírez el Torero", 400, imagen,armas);
 		
 	}
 	
-	public Torero( ImageIcon imagen, ArrayList<Arma> armas) {
-		super("Ramirez el Torero",500, imagen, armas);
-		
+	public int getVida() {
+		return vida;
 	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+	
 	
 	
 

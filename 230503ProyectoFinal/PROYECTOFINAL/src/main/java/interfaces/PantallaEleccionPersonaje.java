@@ -45,10 +45,13 @@ public class PantallaEleccionPersonaje extends JPanel {
 		setBackground(new Color(255, 255, 255));
 		
 		this.enemigos=new ArrayList<Personaje>();
-		enemigos.add(new Momia(getName(), 300, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
-		enemigos.add(new Torero(getName(), 650, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas,null));
+		enemigos.add(new Momia(getName(), 10, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
+		enemigos.add(new Torero(getName(),10,new ImageIcon(".\\images\\Personajes\\Torero.png"),armas));
+		enemigos.add(new Vaquero(getName(),10,new ImageIcon(".\\images\\Personajes\\Torero.png"),armas));
+		enemigos.add(new Samurai(getName(), 10, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas));
+		/*enemigos.add(new Torero(getName(), 650, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas,null));
 		enemigos.add(new Vaquero(getName(), 400, new ImageIcon(".\\images\\Personajes\\Vaquero.png"),armas, null));
-		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas, null));
+		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas, null));*/
 
 		this.ventana = v;
 		setLayout(null);
@@ -165,7 +168,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 				numeroAleatorio = (byte) r.nextInt(4);
 
 				v.jugador = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
-				System.out.println(v.armas);
+			
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				while (personajeElegido == numeroAleatorio ) {
 					numeroAleatorio = (byte) r.nextInt(4);

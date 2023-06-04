@@ -63,10 +63,10 @@ public class Ventana extends JFrame {
 		
 		
 		this.enemigos=new ArrayList<Personaje>();
-		enemigos.add(new Momia(getName(), 300, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
-		enemigos.add(new Torero(getName(), 650, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas,null));
-		enemigos.add(new Vaquero(getName(), 400, new ImageIcon(".\\images\\Personajes\\Vaquero.png"),armas, null));
-		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas, null));
+		enemigos.add(new Momia(getName(), 500, new ImageIcon(".\\images\\Personajes\\LaMomia.png"),armas));
+		enemigos.add(new Torero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Torero.png"),armas));
+		enemigos.add(new Vaquero(getName(), 500, new ImageIcon(".\\images\\Personajes\\Vaquero.png"),armas));
+		enemigos.add(new Samurai(getName(), 500, new ImageIcon(".\\images\\Personajes\\Samurai.png"),armas));
 		
 		//add a todos
 		//Usa un intercambio de valores para intercambiar aleatoriamente dos posiciones del array 100 veces

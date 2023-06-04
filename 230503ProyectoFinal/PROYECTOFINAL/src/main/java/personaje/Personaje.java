@@ -24,11 +24,15 @@ public class Personaje extends ElementoConNombre {
 
 	private Arma armaActual;
 
+	public boolean muertisimo = false;
+
 	public Personaje(String nombre, int vida, ImageIcon imagen, ArrayList<Arma> armas) {
 		super(nombre);
-		this.vida = vida;
+
+		this.vida=vida;
 		this.imagen = imagen;
 		this.armas = armas;
+
 	}
 
 	public Personaje() {
@@ -40,7 +44,8 @@ public class Personaje extends ElementoConNombre {
 	}
 
 	public void setVida(int vida) {
-		this.vida = vida;
+
+		this.vida=vida;
 	}
 
 	public ImageIcon getImagen() {
@@ -124,7 +129,7 @@ public class Personaje extends ElementoConNombre {
 			}
 
 			JOptionPane.showMessageDialog(null, personaje.getNombre() + " se ha defendido y no ha recibido daño");
-			//Vaquero arma
+			// Vaquero arma
 		} else if (personaje.getClass() == Vaquero.class) {
 
 			Revolver revolver = (Revolver) personaje.getArmas().get(4);
@@ -139,7 +144,7 @@ public class Personaje extends ElementoConNombre {
 				JOptionPane.showMessageDialog(null,
 						enemigo.getNombre() + " Ha recibido un disparo de Revolver y ha sufrido 500 de daño ");
 			}
-			//Samurai arma
+			// Samurai arma
 		} else if (personaje.getClass() == Samurai.class) {
 
 			Katana katana = (Katana) personaje.getArmas().get(5);
@@ -155,8 +160,8 @@ public class Personaje extends ElementoConNombre {
 						enemigo.getNombre() + " Ha recibido un corte de Katana y ha sufrido 250 de daño  ");
 
 			}
-			//Torero arma
-		} else if (personaje.getClass() == Torero.class){
+			// Torero arma
+		} else if (personaje.getClass() == Torero.class) {
 
 			Estoque estoque = (Estoque) personaje.getArmas().get(6);
 			personaje.setArmaActual(estoque);
@@ -168,18 +173,13 @@ public class Personaje extends ElementoConNombre {
 				estoque.Atacar(enemigo, 0);
 
 				JOptionPane.showMessageDialog(null,
-						 " Olé mi niño que arte tiene que le ha dado una buena estocada a "+enemigo.getNombre());
+						" Olé mi niño que arte tiene que le ha dado una buena estocada a " + enemigo.getNombre());
 
 			}
 		}
 
-	}public boolean estarVivo() {
-		if (this.vida==0) {
-			return false;
-		} else {
-			return true;
-		}
-
 	}
+
+	
 
 }
