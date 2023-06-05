@@ -3,6 +3,9 @@ package interfaces;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -22,16 +25,18 @@ import personaje.Personaje;
 import personaje.Samurai;
 import personaje.Torero;
 import personaje.Vaquero;
+import utils.DAO;
 
 public class PantallaPartida extends JPanel {
 
 	private Ventana ventana;
 	private Personaje jugador;
 	private Personaje enemigo;
+	
 
 	public PantallaPartida(Ventana v, Personaje jugador, Personaje enemigo) {
 		setBackground(new Color(255, 255, 255));
-
+		
 		Tijera tijeraT = new Tijera("Tijera", 0, (byte) 2, new ImageIcon(".\\images\\Tijera.png"));
 		Piedra piedraT = new Piedra("Piedra", 0, (byte) 2, new ImageIcon(".\\images\\Piedra.png"));
 		Papel papelT = new Papel("Papel", 0, (byte) 2, new ImageIcon(".\\images\\Papel.png"));
@@ -98,10 +103,15 @@ public class PantallaPartida extends JPanel {
 				vidaEnemigo.setText("Vida : " + enemigo.getVida());
 
 				if (enemigo.getVida() <= 0) {
-
+					
+					sumarVictoria(v.personajeElegido);
+					
 					v.cambiarAPantalla(PantallaWinner.class, null, null);
 
 				}else if(jugador.getVida()<=0) {
+					
+				
+					sumarVictoria(v.personajeEnemigo);
 					
 					v.cambiarAPantalla(PantallaGameOver.class, null, null);
 					
@@ -132,10 +142,12 @@ public class PantallaPartida extends JPanel {
 				enemigo.setVida(enemigo.getVida());
 
 				if (enemigo.getVida() <= 0) {
+					sumarVictoria(v.personajeElegido);
 
 					v.cambiarAPantalla(PantallaWinner.class, null, null);
 
 				}else if(jugador.getVida()<=0) {
+					sumarVictoria(v.personajeEnemigo);
 					
 					v.cambiarAPantalla(PantallaGameOver.class, null, null);
 					
@@ -166,10 +178,12 @@ public class PantallaPartida extends JPanel {
 				enemigo.setVida(enemigo.getVida());
 
 				if (enemigo.getVida() <= 0) {
+					sumarVictoria(v.personajeElegido);
 
 					v.cambiarAPantalla(PantallaWinner.class, null, null);
 
 				}else if(jugador.getVida()<=0) {
+					sumarVictoria(v.personajeEnemigo);
 					
 					v.cambiarAPantalla(PantallaGameOver.class, null, null);
 					
@@ -197,10 +211,15 @@ public class PantallaPartida extends JPanel {
 				enemigo.setVida(enemigo.getVida());
 
 				if (enemigo.getVida() <= 0) {
+					
+					sumarVictoria(v.personajeElegido);
+					
 
 					v.cambiarAPantalla(PantallaWinner.class, null, null);
 
 				}else if(jugador.getVida()<=0) {
+					
+					sumarVictoria(v.personajeEnemigo);
 					
 					v.cambiarAPantalla(PantallaGameOver.class, null, null);
 					
@@ -280,6 +299,48 @@ public class PantallaPartida extends JPanel {
 
 		}
 
+	}
+	
+	private static void sumarVictoria(byte p) {
+		
+
+		try {	
+			
+			String ganador=Ventana.devolverNombrePersonaje(p);
+			
+		HashSet <String>columnaVictoria=new HashSet<String>();
+		columnaVictoria.add("numeroVictorias");
+		
+		HashMap<String,Object>restriccionesConsulta=new HashMap<String,Object>();
+		restriccionesConsulta.put("nombrePersonaje",ganador);
+		
+	
+			int numeroVictorias=(int) DAO.consultar("victorias", columnaVictoria, restriccionesConsulta).get(0);
+		
+		
+		// Numero Victorias
+		HashSet<String>columnasSacar=new HashSet<String>();
+		
+		columnasSacar.add("numeroVictorias");
+		
+		// datos Modificar 
+		HashMap<String,Object> datosModificar=new HashMap<String,Object>();
+		datosModificar.put("numeroVictorias",++numeroVictorias);
+		// Restricciones 
+		
+		HashMap<String,Object>restricciones=new HashMap<String,Object>();
+		restricciones.put("nombrePersonaje",ganador);
+		
+		
+		
+	
+			DAO.actualizar("victorias", datosModificar, restricciones);
+			
+		
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }

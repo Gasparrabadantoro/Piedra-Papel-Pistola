@@ -35,6 +35,11 @@ public class Ventana extends JFrame {
 	protected ArrayList<Arma>armas;
 	protected Personaje enemigo;
 	protected Personaje jugador;
+	protected byte personajeElegido;
+	protected byte personajeEnemigo;
+	
+	
+	
 	
 	
 	
@@ -146,4 +151,26 @@ public class Ventana extends JFrame {
 		this.getContentPane().setVisible(true);
 
 	}
+	
+	public static String devolverNombrePersonaje( byte p) {
+		
+		
+	
+	if(p==0) {
+		
+		return "momia";
+		
+	}else if (p==1) {
+		return "vaquero";
+		
+	}else if (p==2) {
+		return "samurai";
+		
+	}else if (p==3) {
+		return "torero";
+		
+	}
+	
+	return null;
+}
 }

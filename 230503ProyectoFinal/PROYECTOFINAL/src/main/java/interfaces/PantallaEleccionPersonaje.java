@@ -5,7 +5,10 @@ import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -24,6 +27,7 @@ import personaje.Personaje;
 import personaje.Samurai;
 import personaje.Torero;
 import personaje.Vaquero;
+import utils.DAO;
 
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
@@ -35,7 +39,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 	private ArrayList<Arma>armas;
 	private ArrayList<Personaje>personaje;
 	protected ArrayList<Personaje> enemigos;
-	private byte personajeElegido=-1;
+	
 
 	// Seguir por aqui, meter mas Personajes
 	
@@ -68,6 +72,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 		add(TituloMomia);
 
 		JTextPane textoMomia = new JTextPane();
+		textoMomia.setEditable(false);
 		textoMomia.setText(
 				"Recien llegada de las profundidades \r\ndel Cairo. Su escudo te protegera de \r\ntodos los males, escepto de pagar \r\na Hacienda, haciendo hay que pagarla. \r\n\r\nArma especial - Escudo- Proteje de Ataques");
 		textoMomia.setBounds(35, 185, 243, 115);
@@ -88,8 +93,11 @@ public class PantallaEleccionPersonaje extends JPanel {
 		imagenMomia.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				
+				
 
-				personajeElegido=0;
+				ventana.personajeElegido=0;
 				
 				Random r = new Random();
 
@@ -102,12 +110,16 @@ public class PantallaEleccionPersonaje extends JPanel {
 				v.enemigo = v.enemigos.get(numeroAleatorio);
 				
 				
-				while (personajeElegido == numeroAleatorio) {
+				while (	ventana.personajeElegido== numeroAleatorio) {
+					
+					
 					
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
+				
+				v.personajeEnemigo=numeroAleatorio;
 				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			}
 		});
@@ -117,7 +129,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				personajeElegido=1;
+				ventana.personajeElegido=1;
 				Random r = new Random();
 
 				byte numeroAleatorio;
@@ -126,11 +138,12 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				v.jugador = new Vaquero(new ImageIcon(".\\images\\Personajes\\Vaquero.png"), v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (personajeElegido == numeroAleatorio) {
+				while (	ventana.personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
+				v.personajeEnemigo=numeroAleatorio;
 				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
@@ -144,6 +157,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			imagenVaquero.setIcon(new ImageIcon(enIcono2));
 
 			JTextPane txtVaquero = new JTextPane();
+			txtVaquero.setEditable(false);
 			txtVaquero.setText(
 					"No hay tirador mas rapido\r\nen el mundo,o por lo menos\r\neso dice su mujer. Letal Arma\r\nRevolver 45 Colt \r\n\r\nArma Especial - Revolver- 500 daño\r\ncon probabilidad de acertar entre 1 y 10. ");
 			txtVaquero.setBounds(318, 185, 226, 118);
@@ -159,7 +173,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				personajeElegido=2;
+				ventana.personajeElegido=2;
 				
 				Random r = new Random();
 
@@ -170,11 +184,12 @@ public class PantallaEleccionPersonaje extends JPanel {
 				v.jugador = new Samurai(new ImageIcon(".\\images\\Personajes\\Samurai.png"),v.armas);
 			
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (personajeElegido == numeroAleatorio ) {
+				while (	ventana.personajeElegido == numeroAleatorio ) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
+				v.personajeEnemigo=numeroAleatorio;
 				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
@@ -202,6 +217,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			add(TituloSamurai);
 
 			JTextPane textoSamurai = new JTextPane();
+			textoSamurai.setEditable(false);
 			textoSamurai.setText(
 					"Formidable Guerrera de las montañas\r\nde Sengoku, corta rollos profesional\r\nsegún sus hijos. Cortara en mil pedazos\r\ntu carrera como programador. \r\n\r\nArma especial -Katana- 200 de daño \r\n");
 			textoSamurai.setBounds(35, 460, 226, 129);
@@ -217,7 +233,7 @@ public class PantallaEleccionPersonaje extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				personajeElegido=3;
+				ventana.personajeElegido=3;
 
 				Random r = new Random();
 
@@ -227,11 +243,12 @@ public class PantallaEleccionPersonaje extends JPanel {
 
 				v.jugador = new Torero(new ImageIcon(".\\images\\Personajes\\Torero.png"),v.armas);
 				v.enemigo = v.enemigos.get(numeroAleatorio);
-				while (personajeElegido == numeroAleatorio) {
+				while (	ventana.personajeElegido == numeroAleatorio) {
 					numeroAleatorio = (byte) r.nextInt(4);
 
 					v.enemigo = v.enemigos.get(numeroAleatorio);
 				}
+				v.personajeEnemigo=numeroAleatorio;
 				v.cambiarAPantalla(PantallaPartida.class, v.jugador, v.enemigo);
 			
 			}
@@ -251,10 +268,34 @@ public class PantallaEleccionPersonaje extends JPanel {
 			add(TituloTorero);
 
 			JTextPane textoTorero = new JTextPane();
+			textoTorero.setEditable(false);
 			textoTorero.setText(
 					"Guerrero Torero nasio en \r\nMálaga...mirar que postre\r\ny que lustre,con un estoque\r\nque te puede llegar al corazón,\r\nRamírez es un rompe corazones. \r\n\r\nArma especial - Estoque 400 de daño.");
 			textoTorero.setBounds(318, 460, 226, 129);
 			add(textoTorero);
+			
+			// CONSULTAR VICTORIAS 
+			
+			
+			
+			
+			JLabel victoriaMomia = new JLabel("Victoria :"+victorias("momia"));
+			victoriaMomia.setBounds(192, 170, 86, 14);
+			add(victoriaMomia);
+			
+			JLabel victoriaVaquera = new JLabel("Victoria:"+victorias("vaquero"));
+			victoriaVaquera.setBounds(454, 170, 116, 14);
+			add(victoriaVaquera);
+			
+			JLabel victoriaSamurai = new JLabel("Victoria:"+victorias("samurai"));
+			victoriaSamurai.setBounds(177, 443, 101, 14);
+			add(victoriaSamurai);
+			
+			JLabel victoriaTorera = new JLabel("Victoria:"+victorias("torero"));
+			victoriaTorera.setBounds(454, 443, 90, 14);
+			add(victoriaTorera);
+			
+			
 
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -270,5 +311,25 @@ public class PantallaEleccionPersonaje extends JPanel {
 		 * this.ventana.cambiarAPantalla(PantallaPartida.class,this.ventana.jugador,this
 		 * .ventana.enemigos.get(0)); }
 		 */
+	}
+	
+	private static int victorias(String nombre) {
+		
+		
+		HashSet <String>columnaVictoria=new HashSet<String>();
+		columnaVictoria.add("numeroVictorias");
+		
+		HashMap<String,Object>restriccionesConsulta=new HashMap<String,Object>();
+		restriccionesConsulta.put("nombrePersonaje",nombre);
+		
+		int numeroVictorias=-1;
+			try {
+				 numeroVictorias=(int) DAO.consultar("victorias", columnaVictoria, restriccionesConsulta).get(0);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			return numeroVictorias;
 	}
 }
